@@ -4,7 +4,42 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
     <title>Rock, Paper, Scissors</title>
   </head>
-  <body></body>
+  <body>
+    <main>
+      <section class="player player--0 player--active">
+        <div>
+          <button>Rock</button>
+          <button>Paper</button>
+          <button>Scissors</button>
+        </div>
+        <div class="current">
+          <p class="current-score" id="current--0">Scores: 0</p>
+        </div>
+        <div>
+          <img src="" class="dice" />
+          <h2 class="name" id="name--0">You</h2>
+        </div>
+      </section>
+
+      <h3>VS</h3>
+
+      <section class="player player--1 player--active">
+        <div class="current">
+          <p class="current-score" id="current--1">Scores: 0</p>
+        </div>
+        <div>
+          <img src="" class="dice" />
+          <h2 class="name" id="name--1">Computer</h2>
+        </div>
+      </section>
+
+      <button class="btn btn--new">
+        <i class="bi bi-plus-circle"></i> New game
+      </button>
+    </main>
+    <!-- <script src="script.js"></script> -->
+  </body>
 </html>
