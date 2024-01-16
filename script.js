@@ -24,8 +24,18 @@ const gameLogic = {
   'paper': { 'beats': 'rock', 'losesTo': 'scissors' },
 };
 
+const showChosenOptions = function (playerOption) {
+  playerAction.src = `images/p_${playerOption}.jpg`;
+  const computerOption =
+    computerOptions[
+      Math.trunc(Math.random() * (computerOptions.length - 1)) + 1
+    ];
+  computerAction.src = `images/c_${computerOption}.jpg`;
+  return computerOption
+} 
+
+
 const checkWhoIsWinner = function (playerOption, computerOption) {
-  console.log(playerOption, computerOption);
   if (gameLogic[playerOption]['beats'] === computerOption) {
     playerScore += 1;
     playerScoreEl.textContent = playerScore;
@@ -35,36 +45,17 @@ const checkWhoIsWinner = function (playerOption, computerOption) {
   }
 };
 
-btnRock.addEventListener('click', function () {
-  playerAction.src = 'images/p_rock.jpg';
-  const action = 'rock';
-  const option =
-    computerOptions[
-      Math.trunc(Math.random() * (computerOptions.length - 1)) + 1
-    ];
-  computerAction.src = `images/c_${option}.jpg`;
-  checkWhoIsWinner(action, option);
+btnRock.addEventListener('click', () => {
+  const computerOption = showChosenOptions('rock');
+  checkWhoIsWinner('rock', computerOption); 
 });
 
-btnPaper.addEventListener('click', function () {
-  playerAction.src = 'images/p_paper.jpg';
-  const action = 'paper';
-  const option =
-    computerOptions[
-      Math.trunc(Math.random() * (computerOptions.length - 1)) + 1
-    ];
-  computerAction.src = `images/c_${option}.jpg`;
-  checkWhoIsWinner(action, option);
+btnPaper.addEventListener('click', () => {
+  const computerOption = showChosenOptions('paper');
+  checkWhoIsWinner('paper', computerOption)
 });
 
-btnScissors.addEventListener('click', function () {
-  playerAction.src = 'images/p_scissors.jpg';
-  const action = 'scissors';
-  const option =
-    computerOptions[
-      Math.trunc(Math.random() * (computerOptions.length - 1)) + 1
-    ];
-  console.log(option, action);
-  computerAction.src = `images/c_${option}.jpg`;
-  checkWhoIsWinner(action, option);
+btnScissors.addEventListener('click', () => {
+  const computerOption = showChosenOptions('scissors');
+  checkWhoIsWinner('scissors', computerOption)
 });
