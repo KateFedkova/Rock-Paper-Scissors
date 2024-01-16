@@ -17,3 +17,13 @@ let playerScore = 0;
 let computerScore = 0;
 
 const computerOptions = ['rock', 'paper', 'scissors'];
+
+btnRock.addEventListener('click', function () {
+  playerAction.src = 'images/p_rock.jpg';
+  const action = 'rock';
+  const option =
+    computerOptions[
+      Math.trunc(Math.random() * (computerOptions.length - 1)) + 1
+    ];
+  computerAction.src = `images/c_${option}.jpg`;
+});
