@@ -18,6 +18,23 @@ let computerScore = 0;
 
 const computerOptions = ['rock', 'paper', 'scissors'];
 
+const gameLogic = {
+  'rock': { 'beats': 'scissors', 'losesTo': 'paper' },
+  'scissor': { 'beats': 'paper', 'losesTo': 'rock' },
+  'paper': { 'beats': 'rock', 'losesTo': 'scissor' }
+};
+
+
+const checkWhoIsWinner = function (playerOption, computerOption) {
+  if (gameLogic[playerOption]['beats'] === computerOption) {
+    playerScore += 1;
+    playerScoreEl.textContent = playerScore;
+  } else if (gameLogic[playerOption]['losesTo'] === computerOption) {
+    computerScore += 1;
+    computerScoreEl.textContent = computerScore;
+  }
+};
+
 btnRock.addEventListener('click', function () {
   playerAction.src = 'images/p_rock.jpg';
   const action = 'rock';
@@ -26,4 +43,5 @@ btnRock.addEventListener('click', function () {
       Math.trunc(Math.random() * (computerOptions.length - 1)) + 1
     ];
   computerAction.src = `images/c_${option}.jpg`;
+  checkWhoIsWinner(action, option);
 });
