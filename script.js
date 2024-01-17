@@ -68,8 +68,6 @@ const setWhiteBackground = function () {
 const resetGame = function () {
   playing = true;
   setWhiteBackground();
-  playerScoreEl.textContent = 0;
-  computerScoreEl.textContent = 0;
   playerScoreEl.classList.remove('current--winner');
   computerScoreEl.classList.remove('current--winner');
   player.classList.remove('player--winner');
@@ -83,9 +81,13 @@ for (let i = 0; i < optionButtons.length; i++) {
       const computerOption = showChosenOptions(elemId);
       playing = false;
       checkWhoIsWinner(elemId, computerOption);
-      setTimeout(() => resetGame, 2000);
+      setTimeout(() => resetGame(), 2000);
     }
   });
 }
 
-newGameButton.addEventListener('click', resetGame);
+newGameButton.addEventListener('click', function () {
+  playerScoreEl.textContent = 0;
+  computerScoreEl.textContent = 0;
+  resetGame();
+});
