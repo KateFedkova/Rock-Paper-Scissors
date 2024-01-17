@@ -71,3 +71,13 @@ for (let i = 0; i < optionButtons.length; i++) {
     }
   });
 }
+
+newButton.addEventListener('click', function () {
+  playerScoreEl.textContent = 0;
+  computerScoreEl.textContent = 0;
+  setWhiteBackground();
+  playerScoreEl.classList.remove('current--winner');
+  computerScoreEl.classList.remove('current--winner');
+  document.getElementById('name--0').classList.remove('player--winner');
+  document.getElementById('name--1').classList.remove('player--winner');
+});
