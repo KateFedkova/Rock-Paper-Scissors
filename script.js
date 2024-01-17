@@ -1,9 +1,7 @@
 'use strict';
 
 // Select option buttons
-const btnRock = document.getElementById('rock');
-const btnPaper = document.getElementById('paper');
-const btnScissors = document.getElementById('scissors');
+const optionButtons = document.querySelectorAll('.option');
 
 // Select pictures
 const playerAction = document.getElementById('player--action');
@@ -39,23 +37,16 @@ const checkWhoIsWinner = function (playerOption, computerOption) {
   if (gameLogic[playerOption]['beats'] === computerOption) {
     playerScore += 1;
     playerScoreEl.textContent = playerScore;
+    document.getElementById('name--0').classList.add('player--winner')
   } else if (gameLogic[playerOption]['losesTo'] === computerOption) {
     computerScore += 1;
     computerScoreEl.textContent = computerScore;
   }
 };
 
-btnRock.addEventListener('click', () => {
-  const computerOption = showChosenOptions('rock');
-  checkWhoIsWinner('rock', computerOption); 
-});
+const setWhiteBackground = function () {
+  playerAction.src = 'images/white-background.jpg';
+  computerAction.src = 'images/white-background.jpg';
+}
 
-btnPaper.addEventListener('click', () => {
-  const computerOption = showChosenOptions('paper');
-  checkWhoIsWinner('paper', computerOption)
-});
 
-btnScissors.addEventListener('click', () => {
-  const computerOption = showChosenOptions('scissors');
-  checkWhoIsWinner('scissors', computerOption)
-});
