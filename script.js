@@ -41,8 +41,8 @@ const gameLogic = {
 const showChosenOptions = function (playerOption) {
   const computerOption =
     computerOptions[Math.trunc(Math.random() * computerOptions.length)];
-  playerAction.src = `images/p_${playerOption}.jpg`;
-  computerAction.src = `images/c_${computerOption}.jpg`;
+  playerAction.src = `images/${playerOption}.jpg`;
+  computerAction.src = `images/${computerOption}.jpg`;
   return computerOption;
 };
 
