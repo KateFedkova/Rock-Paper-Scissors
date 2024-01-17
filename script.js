@@ -49,4 +49,11 @@ const setWhiteBackground = function () {
   computerAction.src = 'images/white-background.jpg';
 }
 
-
+for (let i = 0; i < optionButtons.length; i++) {
+  optionButtons[i].addEventListener('click', () => {
+    const elemId = optionButtons[i].id;
+    const computerOption = showChosenOptions(elemId);
+    checkWhoIsWinner(elemId, computerOption); 
+    setTimeout(() => setWhiteBackground(), 2000);
+  })
+}
